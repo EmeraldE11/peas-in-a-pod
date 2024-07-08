@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dogif0bavivug"]
+
+[ext_resource type="Script" path="res://Main.gd" id="1_cygha"]
+[ext_resource type="PackedScene" uid="uid://n1qyfi6l3fr8" path="res://pea.tscn" id="2_7v6oe"]
+[ext_resource type="PackedScene" uid="uid://b2p3hod3esp7q" path="res://steak.tscn" id="3_ruxwd"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_cygha")
+
+[node name="Pea1" parent="." instance=ExtResource("2_7v6oe")]
+position = Vector2(-44, 44)
+
+[node name="Pea2" parent="." instance=ExtResource("2_7v6oe")]
+position = Vector2(-47, 45)
+
+[node name="steak" parent="." instance=ExtResource("3_ruxwd")]

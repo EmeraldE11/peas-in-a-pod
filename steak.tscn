@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://b2p3hod3esp7q"]
+
+[ext_resource type="Script" path="res://steak.gd" id="1_oidti"]
+[ext_resource type="Texture2D" uid="uid://cjg0bcwnq582m" path="res://art/sizzling steak.png" id="2_istbt"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tigix"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_istbt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5fvyn"]
+radius = 56.0
+height = 148.0
+
+[node name="steak" type="Area2D"]
+position = Vector2(-222, -62)
+script = ExtResource("1_oidti")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_tigix")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -5)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_5fvyn")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

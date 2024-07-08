@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://dtgeoe1h6787x"]
+
+[ext_resource type="Script" path="res://pealet.gd" id="1_tculr"]
+[ext_resource type="Texture2D" uid="uid://44v4suahl812" path="res://art/small pea blue.png" id="2_74f51"]
+[ext_resource type="Texture2D" uid="uid://b00habf6krhkl" path="res://art/small pea red.png" id="3_4ob4a"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yf3aa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_74f51")
+}],
+"loop": true,
+"name": &"blue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_4ob4a")
+}],
+"loop": true,
+"name": &"red",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5opwh"]
+radius = 37.0135
+
+[node name="pealet" type="Node2D"]
+script = ExtResource("1_tculr")
+metadata/_edit_group_ = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+sprite_frames = SubResource("SpriteFrames_yf3aa")
+animation = &"red"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_5opwh")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_entered"]

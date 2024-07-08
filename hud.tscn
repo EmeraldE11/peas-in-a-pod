@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwvd8me4uopaj"]
+
+[ext_resource type="Script" path="res://HUD.gd" id="1_sh3tr"]
+[ext_resource type="FontFile" uid="uid://dif2vklgkoccp" path="res://fonts/Xolonium-Regular.ttf" id="2_rkim4"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_sh3tr")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 483.0
+offset_bottom = 123.0
+scale = Vector2(1.23679, 1.21008)
+theme_override_fonts/font = ExtResource("2_rkim4")
+theme_override_font_sizes/font_size = 50
+text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2

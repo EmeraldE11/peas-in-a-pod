@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://68yxfpqt5af3"]
+
+[ext_resource type="Script" path="res://pealets.gd" id="1_dxar3"]
+[ext_resource type="Texture2D" uid="uid://44v4suahl812" path="res://art/small pea blue.png" id="1_htvvt"]
+[ext_resource type="Texture2D" uid="uid://b00habf6krhkl" path="res://art/small pea red.png" id="2_odi4s"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5nu3o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_htvvt")
+}],
+"loop": true,
+"name": &"blue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_odi4s")
+}],
+"loop": true,
+"name": &"red",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pnvwi"]
+radius = 37.108
+
+[node name="pealets" type="Area2D"]
+script = ExtResource("1_dxar3")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_5nu3o")
+animation = &"blue"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_pnvwi")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
